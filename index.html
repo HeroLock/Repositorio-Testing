@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-    <script src="./index.js"></script>
+    <title>Calculadora</title>
+    <script src="./index.js" defer></script>
+    <style>
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+        input{ /* configuracion de los textFields */
+            display: block;
+            margin: auto;
+            margin-bottom: 15;
+        }
+    </style>
 </head>
-<body>
-    
-    <h1 style="color:indigo ;">Pruebas del JavaScript</h1>
 
+<body> 
+    <h1 style="color:black ;">Calculadora de Engell</h1>
+
+<form method="dialog"> <!-- forma de hacer que el ENTER accione el boton de calcular -->
+    <input type="text"  id="op1" placeholder="Operador 1"> <!-- primer valor -->
+    <input type="text"  id="opO" placeholder="+, -, *, /"> <!-- definidor de la operacion -->
+    <input type="text"  id="op2" placeholder="Operador 2"> <!-- segundo valor -->
+    <input type="submit" id="calc" value="Calcular" onclick=Calcular()> <!-- boton de calcular -->
+</form>
+    <p id="result"></p> <!-- resultado a mostrar -->
 </body>
 </html>
