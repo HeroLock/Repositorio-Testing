@@ -1,5 +1,1 @@
-# prueba
-Esto es una prueba
-
-## descripcion
-Esta es una descripcion
+## Este es el ReadMe que se encuentra dentro de carpeta= prueba
