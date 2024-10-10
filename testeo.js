@@ -71,9 +71,9 @@ personas.push({
     // nombre : prompt("¿Cuál es su nombre?"),
     // edad : prompt("¿Cuál es su edad?"),
     // peso : prompt("¿Cuál es su peso?"),
-    nombre : txtPrNm,
-    edad : txtPrEd,
-    peso : txtPrPs,
+    nombre : txtPrNm.value,
+    edad : txtPrEd.value,
+    peso : txtPrPs.value,
 })
     //alert(estadoAgregar);
     pStatusAgP.innerText = estadoAgregarPositivo
@@ -89,25 +89,27 @@ personas.push({
     if(!isNaN(preguntarPersonas) && preguntarPersonas > 0){
         for(let i = 0; i < preguntarPersonas; i++){
             estadoAgregarNegativo = "OK"
-            estadoAgregarPositivo = "Se va a agregar esta persona"
+            estadoAgregarPositivo = "Se va agregar a esta persona"
             agregarPersonas()
         }
     }else if(preguntarPersonas === 0){
         estadoAgregarNegativo = "No agregaste personas"
-        estadoAgregarPositivo = null
+        estadoAgregarPositivo = ""
         //alert(estadoAgregar);
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
     }else{
         estadoAgregar = "No dijiste cuantas personas querias agregar!"
-        estadoAgregarPositivo = null
+        estadoAgregarPositivo = ""
         //alert(estadoAgregar);
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
     }
     }
+
     btnCheck.addEventListener("click", checkPreguntar);
     checkPreguntar()
+    
 
     let numPersonas = personas.length
 
