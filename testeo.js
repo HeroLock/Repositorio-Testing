@@ -49,31 +49,43 @@
 // let arregloDePersonas = [Persona, Persona2]
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
+let personas = []
 
-let personas = [
-    {
-        nombre : prompt("¿Cuál es tu nombre?"),
-        edad : prompt("¿Cuál es tu edad?"),
-        peso : prompt("¿Cuál es tu peso?"),
-    },{
-        nombre : prompt("¿Cuál es tu nombre?"),
-        edad : prompt("¿Cuál es tu edad?"),
-        peso : prompt("¿Cuál es tu peso?"),
+function agregarPersonas(){
+
+personas.push({
+    nombre : prompt("¿Cuál es su nombre?"),
+    edad : prompt("¿Cuál es su edad?"),
+    peso : prompt("¿Cuál es su peso?"),
+})
+    alert("Agregaste a esta persona");
+}
+
+
+    let preguntarPersonas = parseInt(prompt("Cuantas personas quieres agregar?"))
+    
+
+    if(!isNaN(preguntarPersonas && preguntarPersonas > 0)){
+        for(let i = 0; i < preguntarPersonas; i++){
+            agregarPersonas()
+        }
+    }else if(preguntarPersonas == 0){
+        alert("No agregaste personas")
+    }else{
+        alert("No dijiste cuantas personas querias agregar!")
     }
-]
-    let name = personas.nombre
-    let age = personas.edad
-    let weigth = personas.peso
 
-    for(i = 0, i < personas.length, i++){
+    let numPersonas = personas.length
+
+    for(let i = 0; i < numPersonas; i++){
+        let name = personas[i].nombre
+        let age = personas[i].edad
+        let weigth = personas[i].peso
+        let nreal = i + 1
+
+        console.log("===== Persona " + nreal)
         console.log("Nombre: " + name)
         console.log("Edad: " + age)
         console.log("Peso: " + weigth)
         console.log("====================================================")
     }
-
-
-// let nombre = prompt("¿Cuál es tu nombre?");
-// let edad = prompt("¿Cuál es tu edad?");
-// let peso = prompt("¿Cuál es tu peso?");
-
