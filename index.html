@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Página de Testing</title>
     <script src="./index.js" defer></script>
     <style>
         body{
             font-family:Verdana, Geneva, Tahoma, sans-serif;
             text-align: center;
         }
-        input{ /* configuracion de los textFields */
+        input{ 
             display: block;
             margin: auto;
-            margin-bottom: 15;
+            margin-bottom: 15px;
         }
     </style>
     
@@ -21,21 +21,27 @@
 
 <body> 
     <h1 style="color:black ;">Testing de Engell</h1> 
-
-<!-- Agregar Personas / Testeo.js -->
-<form method="dialog">
-<input type="text" id="prPe" placeholder="Cuantas personas quieres agregar?">
-<input type="submit" id="chequeo" value="Siguiente" onclick=checkPreguntar()>
-<p id="estadoAgregarNegativo"></p>
-<input type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
-<input type="text" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
-<input type="text" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
-<input type="submit" id="agrPersonas" value="Agregar" onclick=agregarPersonas()>
-<p id="estadoAgregarPositivo"></p>
-<input type="submit" id="mostrarPersonas" value="Mostrar" onclick=mostrarPersonas()>
-
-
-</form>
+        <hr>
+    
+    <div>
+        <input size="30" type="text" id="prPe" placeholder="¿Cuántas personas quieres agregar?">
+        <input type="button" id="chequeo" value="Confirmar">
+        <p id="estadoAgregarNegativo"></p>
+        <input maxlength="60" type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
+        <input type="number" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
+        <input type="number" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
+        <input type="button" id="agrPersonas" value="Agregar">
+        <p id="estadoAgregarPositivo"></p>
+        <input type="button" id="mostrarPersonas" value="Mostrar">
+            <hr>
+    </div>
+    
+    <div class="personas-container" id="personasContainer">
+        <div id="numPerson"></div>
+        <div id="nmPersonas"></div>
+        <div id="edPersonas"></div>
+        <div id="psPersonas"></div>
+    </div>
 
 </body>
 </html>
