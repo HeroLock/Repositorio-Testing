@@ -1,5 +1,4 @@
-// PRUEBA DE ESTRUCTURAS EN JAVASCRIPT
-
+// ------------------------------------------------------------ PRUEBA DE ESTRUCTURAS EN JAVASCRIPT
 // funciones, for, if
 function comprobarEstudiantes(){
 
@@ -25,17 +24,14 @@ for(let i = 0; i < notas.length; i++){
     console.log("La cantidad de estudiantes reprobados es: " + qreprobados)
 }
 
-// comprobarEstudiantes();
-
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
-
 // Objetos
 let trabajador = {
     nombre : "Engell",
     edad : 18,
     masculino: true,
 }
-//console.log(Persona)
+//console.log(trabajador)
 trabajador.musicaFavorita = "Rap" // Crear atributos de un objeto fuera de el
 
 let trabajador2 = {
@@ -43,10 +39,26 @@ let trabajador2 = {
     edad : 17,
     masculino: false,
 }
-//console.log(Persona2)
+//console.log(trabajador2)
 trabajador2.edad = 22 //Modificar un atributo ya existente
 
 let arregloDeTrabajadores = [trabajador, trabajador2]
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Objetos
+
+const jsonString = '{ "name": "Juan", "age": 30 }';
+
+try {
+    // Intentamos parsear el JSON
+    const data = JSON.parse(jsonString);
+    console.log(data.name); // Accedemos a la propiedad "name"
+} catch (error) {
+    // Si hay un error en la conversión, capturamos y manejamos el error
+    console.error("El JSON no es válido:", error.message);
+} finally {
+    console.log("Finalizó el intento de parsear el JSON.");
+}
 
 // // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // // Trabajo Propio
