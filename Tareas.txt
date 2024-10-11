@@ -1,0 +1,26 @@
+Acá van a estar las tareas/cosas que quiera hacerle a la pagina en desarrollo
+**Tareas Generales:
+-Añadir base de datos
+-
+-
+
+**Tareas para el HTML:
+-Mejorar la apariencia visual(css)
+-Cambiar la forma en la que se presentan los elementos(estructuración y css)
+-Mostrar la información de las personas en otra forma de orden, puede ser en tablas o "paginas"
+-
+-
+-
+-
+
+**Tareas para el JavaScript:
+-Agregar un boton que reinicie el flujo/página
+-Hacer que el usuario no pueda ingresar una edad o peso no validos, por ejemplo, que ponga -1 año de edad
+-
+-
+-
+-
+-
+-
+-
+-
