@@ -1,4 +1,5 @@
 // Trabajo Propio -- Engell Vado
+
 let txtPrPe = document.getElementById("prPe")
 let btnCheck = document.getElementById("chequeo")
 let pStatusAgN = document.getElementById("estadoAgregarNegativo")
@@ -8,73 +9,119 @@ let txtPrPs = document.getElementById("prPs")
 let btnAgregar = document.getElementById("agrPersonas")
 let pStatusAgP = document.getElementById("estadoAgregarPositivo")
 let btnMostrarP = document.getElementById("mostrarPersonas")
+let pNumeroPersonas = document.getElementById("numPerson")
+let pNombrePersonas = document.getElementById("nmPersonas")
+let pEdadPersonas = document.getElementById("edPersonas")
+let pPesoPersonas = document.getElementById("psPersonas")
 
+btnAgregar.disabled = true; // Deshabilitar el botón inicialmente
 
 let personas = []
 let estadoAgregarPositivo = ""
 let estadoAgregarNegativo = ""
-let preguntarPersonas // let preguntarPersonas = parseInt(prompt("Cuantas personas quieres agregar?", 10))
+let preguntarPersonas 
+let contadorPersonasAgregadas = 0;
 
 function agregarPersonas(){
 
-personas.push({
-    // nombre : prompt("¿Cuál es su nombre?"),
-    // edad : prompt("¿Cuál es su edad?"),
-    // peso : prompt("¿Cuál es su peso?"),
-    nombre : txtPrNm.value,
-    edad : txtPrEd.value,
-    peso : txtPrPs.value,
-})
-    //alert(estadoAgregar);
-    pStatusAgP.innerText = estadoAgregarPositivo
+ // Verificar si se pueden agregar más personas
+ if (contadorPersonasAgregadas < preguntarPersonas) {
+    if (txtPrNm.value.trim() === "" || isNaN(parseInt(txtPrEd.value, 10)) || isNaN(parseFloat(txtPrPs.value))){
+        pStatusAgN.innerText = "Por favor, ingresa datos válidos para nombre, edad y peso.";
+        return;
+    }
+
+    personas.push({
+        nombre : txtPrNm.value,
+        edad : parseInt(txtPrEd.value, 10),
+        peso : parseFloat(txtPrPs.value),
+    });
+
+    estadoAgregarPositivo = "Persona agregada correctamente.";
+    pStatusAgP.innerText = estadoAgregarPositivo;
+
+    // Incrementar el contador de personas agregadas
+    contadorPersonasAgregadas++;
+
+    // Limpiar los campos de texto
+    txtPrNm.value = "";
+    txtPrEd.value = "";
+    txtPrPs.value = "";
+
+} else {
+    pStatusAgN.innerText = "Ya has agregado el número máximo de personas.";
+    btnAgregar.disabled = true; // Deshabilitar el botón para que no se puedan agregar más personas
+}
 }
 btnAgregar.addEventListener("click", agregarPersonas);
-agregarPersonas()  
+
+
 
 function checkPreguntar(){
 
     preguntarPersonas = parseInt(txtPrPe.value, 10)
 
     if(!isNaN(preguntarPersonas) && preguntarPersonas > 0){
-        for(let i = 0; i < preguntarPersonas; i++){
-            estadoAgregarNegativo = "OK"
+            if(preguntarPersonas > 1){
+                estadoAgregarNegativo = "Vas a agregar: " + preguntarPersonas + " personas."
+            }else{
+                estadoAgregarNegativo = "Vas a agregar: " + preguntarPersonas + " persona."
+            }
+
+            btnAgregar.disabled = false; // Habilitar el botón "Agregar"
+            contadorPersonasAgregadas = 0; // Reiniciar el contador por si el usuario cambia el número
+
             pStatusAgN.innerText = estadoAgregarNegativo
-            estadoAgregarPositivo = "Se va agregar a esta persona"
-        }
+            estadoAgregarPositivo = "Se va agregar a esta persona."
+
     }else if(preguntarPersonas === 0){
         estadoAgregarNegativo = "No agregaste personas"
         estadoAgregarPositivo = ""
-        //alert(estadoAgregar);
+
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
+
+        btnAgregar.disabled = true; // Mantener el botón "Agregar" deshabilitado
+        btnMostrarP.disabled = true; // Mantener el botón "Mostrar" deshabilitado
     }else{
         estadoAgregarNegativo = "No dijiste cuantas personas querias agregar!"
         estadoAgregarPositivo = ""
-        //alert(estadoAgregar);
+
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
+
+        btnAgregar.disabled = true; // Mantener el botón "Agregar" deshabilitado
+        btnMostrarP.disabled = true; // Mantener el botón "Mostrar" deshabilitado
     }
 }
     
 btnCheck.addEventListener("click", checkPreguntar);
-checkPreguntar()
+
     
 function mostrarPersonas(){   
-    let numPersonas = personas.length
 
-    for(let i = 0; i < numPersonas; i++){
-        let name = personas[i].nombre
-        let age = personas[i].edad
-        let weigth = personas[i].peso
-        let nreal = i + 1
+    // Limpiar el contenedor antes de agregar nuevas personas
+    const personasContainer = document.getElementById("personasContainer");
+    personasContainer.innerHTML = "";
 
-        alert("esto no funciona")
-        console.log("===== Persona " + nreal)
-        console.log("Nombre: " + name)
-        console.log("Edad: " + age)
-        console.log("Peso: " + weigth)
-        console.log("====================================================")
-    }
+    // Iterar sobre el array de personas y agregar cada una al contenedor
+    personas.forEach((persona, index) => {
+        // Crear un nuevo elemento div para cada persona
+        const personaDiv = document.createElement("div");
+        personaDiv.className = "persona";
+
+        // Crear el contenido HTML para esta persona
+        personaDiv.innerHTML = `
+            <p>Persona ${index + 1}</p>
+            <p>Nombre: ${persona.nombre}</p>
+            <p>Edad: ${persona.edad}</p>
+            <p>Peso: ${persona.peso}</p>
+            <hr>
+        `;
+
+        // Agregar el div de la persona al contenedor principal
+        personasContainer.appendChild(personaDiv);
+
+})
 }
 btnMostrarP.addEventListener("click", mostrarPersonas);
-mostrarPersonas()
