@@ -1,52 +1,80 @@
-// Definicion de los elementos que hicimos en html
-const txtOp1 = document.getElementById("op1")
-const txtOpO = document.getElementById("opO")
-const txtOp2 = document.getElementById("op2")
-const btnCalc = document.getElementById("calc")
-const pResult = document.getElementById("result")
+// Trabajo Propio -- Engell Vado
+let txtPrPe = document.getElementById("prPe")
+let btnCheck = document.getElementById("chequeo")
+let pStatusAgN = document.getElementById("estadoAgregarNegativo")
+let txtPrNm = document.getElementById("prNm")
+let txtPrEd = document.getElementById("prEd")
+let txtPrPs = document.getElementById("prPs")
+let btnAgregar = document.getElementById("agrPersonas")
+let pStatusAgP = document.getElementById("estadoAgregarPositivo")
+let btnMostrarP = document.getElementById("mostrarPersonas")
 
-// Funcion relacionada con el botonHTML de calcular
-function Calcular(){
-    const op = txtOpO.value // Se saca el valor del operador
-    const op1 = parseFloat(txtOp1.value) // Se pasa el valor1 que da el usuario a numero
-    const op2 = parseFloat(txtOp2.value) // Se pasa el valor2 que da el usuario a numero
-    
-    // Se comprueba con el if si el operador que dio el usuario es correcto (que sea un +,-,*,/)
-    //Se comprueba ademas que los valores que dio el usuario sean numeros, "isNaN = isNotaNumber" + "! = invierte el significado del isNaN"
-    if( (op == "+" || op == "-" || op == "*" || op == "/") && !isNaN(op1) && !isNaN(op2) ){
-        // Se usa el switch para revisar cual operador se uso
-        switch(op){
-            case "+":
-            result = op1 + op2 
-            break
-            case "-":
-            result = op1 - op2 
-            break
-            case "*":
-            result = op1 * op2 
-            break
-            case "/":
-            result = op1 / op2 
-            break
-        }
-        pResult.style= "color: green" // Asigna un color al resultado que se muestra en pantalla
-        pResult.innerText = "Es igual a " + result // Muestra el resultado con un mensaje adicional
-    }else{
-        pResult.style= "color: red" // Asignar un color al mensaje que se muestra en pantalla
-        pResult.innerText = "No pusiste un termino valido capo" // Muestra un mensaje que le dice al usuario que no digito un valor u operador posible
-    }
-    
 
+let personas = []
+let estadoAgregarPositivo = ""
+let estadoAgregarNegativo = ""
+let preguntarPersonas // let preguntarPersonas = parseInt(prompt("Cuantas personas quieres agregar?", 10))
+
+function agregarPersonas(){
+
+personas.push({
+    // nombre : prompt("¿Cuál es su nombre?"),
+    // edad : prompt("¿Cuál es su edad?"),
+    // peso : prompt("¿Cuál es su peso?"),
+    nombre : txtPrNm.value,
+    edad : txtPrEd.value,
+    peso : txtPrPs.value,
+})
+    //alert(estadoAgregar);
+    pStatusAgP.innerText = estadoAgregarPositivo
 }
+btnAgregar.addEventListener("click", agregarPersonas);
+agregarPersonas()  
 
-Calcular() // Se manda a llamar a la funcion para que se pueda ejecutar
+function checkPreguntar(){
 
-// Codigo de HTML
-// <!-- Calcu del Index ========================================================================================================== -->
-// <!-- <form method="dialog"> forma de hacer que el ENTER accione el boton de calcular -->
-//     <!-- <input type="text"  id="op1" placeholder="Operador 1"> primer valor -->
-//     <!-- <input type="text"  id="opO" placeholder="+, -, *, /"> definidor de la operacion -->
-//     <!-- <input type="text"  id="op2" placeholder="Operador 2"> segundo valor -->
-//     <!-- <input type="submit" id="calc" value="Calcular" onclick=Calcular()> boton de calcular -->
-// <!-- </form> -->
-//     <!-- <p id="result"></p> resultado a mostrar  -->
+    preguntarPersonas = parseInt(txtPrPe.value, 10)
+
+    if(!isNaN(preguntarPersonas) && preguntarPersonas > 0){
+        for(let i = 0; i < preguntarPersonas; i++){
+            estadoAgregarNegativo = "OK"
+            pStatusAgN.innerText = estadoAgregarNegativo
+            estadoAgregarPositivo = "Se va agregar a esta persona"
+        }
+    }else if(preguntarPersonas === 0){
+        estadoAgregarNegativo = "No agregaste personas"
+        estadoAgregarPositivo = ""
+        //alert(estadoAgregar);
+        pStatusAgN.innerText = estadoAgregarNegativo
+        pStatusAgP.innerText = estadoAgregarPositivo
+    }else{
+        estadoAgregarNegativo = "No dijiste cuantas personas querias agregar!"
+        estadoAgregarPositivo = ""
+        //alert(estadoAgregar);
+        pStatusAgN.innerText = estadoAgregarNegativo
+        pStatusAgP.innerText = estadoAgregarPositivo
+    }
+}
+    
+btnCheck.addEventListener("click", checkPreguntar);
+checkPreguntar()
+    
+function mostrarPersonas(){   
+    let numPersonas = personas.length
+
+    for(let i = 0; i < numPersonas; i++){
+        let name = personas[i].nombre
+        let age = personas[i].edad
+        let weigth = personas[i].peso
+        let nreal = i + 1
+
+        alert("esto no funciona")
+        console.log("===== Persona " + nreal)
+        console.log("Nombre: " + name)
+        console.log("Edad: " + age)
+        console.log("Peso: " + weigth)
+        console.log("====================================================")
+    }
+}
+btnMostrarP.addEventListener("click", mostrarPersonas);
+mostrarPersonas()
