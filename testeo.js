@@ -57,15 +57,17 @@ let pStatusAgN = document.getElementById("estadoAgregarNegativo")
 let txtPrNm = document.getElementById("prNm")
 let txtPrEd = document.getElementById("prEd")
 let txtPrPs = document.getElementById("prPs")
+let btnAgregar = document.getElementById("agrPersonas")
 let pStatusAgP = document.getElementById("estadoAgregarPositivo")
+let btnMostrarP = document.getElementById("mostrarPersonas")
 
 
 let personas = []
-let estadoAgregarPositivo 
-let estadoAgregarNegativo 
+let estadoAgregarPositivo = ""
+let estadoAgregarNegativo = ""
+let preguntarPersonas // let preguntarPersonas = parseInt(prompt("Cuantas personas quieres agregar?", 10))
 
 function agregarPersonas(){
-    pStatusAgN.innerText = estadoAgregarNegativo
 
 personas.push({
     // nombre : prompt("¿Cuál es su nombre?"),
@@ -78,19 +80,18 @@ personas.push({
     //alert(estadoAgregar);
     pStatusAgP.innerText = estadoAgregarPositivo
 }
+btnAgregar.addEventListener("click", agregarPersonas);
+agregarPersonas()  
 
-    // let preguntarPersonas = parseInt(prompt("Cuantas personas quieres agregar?", 10))
-    let preguntarPersonas
+function checkPreguntar(){
 
-    function checkPreguntar(){
-
-        preguntarPersonas = parseInt(txtPrPe.value, 10)
+    preguntarPersonas = parseInt(txtPrPe.value, 10)
 
     if(!isNaN(preguntarPersonas) && preguntarPersonas > 0){
         for(let i = 0; i < preguntarPersonas; i++){
             estadoAgregarNegativo = "OK"
+            pStatusAgN.innerText = estadoAgregarNegativo
             estadoAgregarPositivo = "Se va agregar a esta persona"
-            agregarPersonas()
         }
     }else if(preguntarPersonas === 0){
         estadoAgregarNegativo = "No agregaste personas"
@@ -99,18 +100,18 @@ personas.push({
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
     }else{
-        estadoAgregar = "No dijiste cuantas personas querias agregar!"
+        estadoAgregarNegativo = "No dijiste cuantas personas querias agregar!"
         estadoAgregarPositivo = ""
         //alert(estadoAgregar);
         pStatusAgN.innerText = estadoAgregarNegativo
         pStatusAgP.innerText = estadoAgregarPositivo
     }
-    }
-
-    btnCheck.addEventListener("click", checkPreguntar);
-    checkPreguntar()
+}
     
-
+btnCheck.addEventListener("click", checkPreguntar);
+checkPreguntar()
+    
+function mostrarPersonas(){   
     let numPersonas = personas.length
 
     for(let i = 0; i < numPersonas; i++){
@@ -119,9 +120,13 @@ personas.push({
         let weigth = personas[i].peso
         let nreal = i + 1
 
+        alert("esto no funciona")
         console.log("===== Persona " + nreal)
         console.log("Nombre: " + name)
         console.log("Edad: " + age)
         console.log("Peso: " + weigth)
         console.log("====================================================")
     }
+}
+btnMostrarP.addEventListener("click", mostrarPersonas);
+mostrarPersonas()

@@ -40,3 +40,13 @@ function Calcular(){
 }
 
 Calcular() // Se manda a llamar a la funcion para que se pueda ejecutar
+
+// Codigo de HTML
+// <!-- Calcu del Index ========================================================================================================== -->
+// <!-- <form method="dialog"> forma de hacer que el ENTER accione el boton de calcular -->
+//     <!-- <input type="text"  id="op1" placeholder="Operador 1"> primer valor -->
+//     <!-- <input type="text"  id="opO" placeholder="+, -, *, /"> definidor de la operacion -->
+//     <!-- <input type="text"  id="op2" placeholder="Operador 2"> segundo valor -->
+//     <!-- <input type="submit" id="calc" value="Calcular" onclick=Calcular()> boton de calcular -->
+// <!-- </form> -->
+//     <!-- <p id="result"></p> resultado a mostrar  -->

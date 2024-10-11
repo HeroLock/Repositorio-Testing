@@ -21,14 +21,6 @@
 
 <body> 
     <h1 style="color:black ;">Testing de Engell</h1> 
-<!-- Calcu del Index ========================================================================================================== -->
-<!-- <form method="dialog"> forma de hacer que el ENTER accione el boton de calcular -->
-    <!-- <input type="text"  id="op1" placeholder="Operador 1"> primer valor -->
-    <!-- <input type="text"  id="opO" placeholder="+, -, *, /"> definidor de la operacion -->
-    <!-- <input type="text"  id="op2" placeholder="Operador 2"> segundo valor -->
-    <!-- <input type="submit" id="calc" value="Calcular" onclick=Calcular()> boton de calcular -->
-<!-- </form> -->
-    <!-- <p id="result"></p> resultado a mostrar  -->
 
 <!-- Agregar Personas / Testeo.js -->
 <form method="dialog">
@@ -38,7 +30,10 @@
 <input type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
 <input type="text" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
 <input type="text" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
+<input type="submit" id="agrPersonas" value="Agregar" onclick=agregarPersonas()>
 <p id="estadoAgregarPositivo"></p>
+<input type="submit" id="mostrarPersonas" value="Mostrar" onclick=mostrarPersonas()>
+
 
 </form>
 
