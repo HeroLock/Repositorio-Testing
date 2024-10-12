@@ -15,9 +15,9 @@ Acá van a estar las tareas/cosas que quiera hacerle a la pagina en desarrollo
 
 **Tareas para el JavaScript:
 -Agregar un boton que reinicie el flujo/página
--Hacer que el usuario no pueda ingresar una edad o peso no validos, por ejemplo, que ponga -1 año de edad
--
--
+-(X)Hacer que el usuario no pueda ingresar una edad o peso no validos, por ejemplo, que ponga -1 año de edad
+-(X)Hacer el boton Mostrar se desactive una vez que ya se mostraron todas las personas que se indicaron en un inicio
+-Hacer un boton que borre las personas que se estan mostrando en caso que el usuario ya no quiera verlas
 -
 -
 -
