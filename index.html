@@ -7,7 +7,7 @@
     <script src="./index.js" defer></script>
     <style>
         body{
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family:Arial, Helvetica, sans-serif;
             text-align: center;
         }
         input{ 
@@ -21,17 +21,18 @@
 
 <body> 
     <h1 style="color:black ;">Testing de Engell</h1> 
+    <p style="color: darkslategray;" >Acá se estará probando como funcionan HTML, CSS, JavaScript y MySQL en conjunto.</p>
         <hr>
     
     <div>
         <input size="30" type="text" id="prPe" placeholder="¿Cuántas personas quieres agregar?">
         <input type="button" id="chequeo" value="Confirmar">
-        <p id="estadoAgregarNegativo"></p>
+        <p style="font-weight: bold;" id="estadoAgregarNegativo"></p>
         <input maxlength="60" type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
         <input type="number" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
         <input type="number" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
         <input type="button" id="agrPersonas" value="Agregar">
-        <p id="estadoAgregarPositivo"></p>
+        <p style="font-weight: bold;" id="estadoAgregarPositivo"></p>
         <input type="button" id="mostrarPersonas" value="Mostrar">
             <hr>
     </div>
