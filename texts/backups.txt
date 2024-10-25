@@ -1,0 +1,125 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #fdfdfd;
+}
+
+.header,
+.main {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.chequeo,
+.agregar,
+.mostrar {
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  flex-direction: column;
+  width: 90vw;
+  padding: 10px 10px 10px 30px;
+  margin: 30px 20px 30px 20px;
+  border-left: 8px solid #333333;
+  border-right: 8px solid #333;
+  box-shadow: 0 0 20px #4445;
+  border-radius: 10px;
+}
+
+h1.headerTitle {
+  font-family: "Barlow Condensed";
+  font-weight: 800;
+  font-size: 50px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  color: #5107ff;
+}
+
+p.headerText {
+  font-family: "Barlow Condensed";
+  font-weight: 400;
+  font-size: 20px;
+  color: #3b3b3b;
+  margin-top: 0;
+}
+
+main.mainCard {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  overflow: auto;
+  max-width: 70vw;
+  min-height: 30vh;
+  padding: 20px;
+  margin: 30px 0px 30px 20px;
+  box-shadow: 0 0 20px #4445;
+  border-radius: 15px;
+}
+
+p.mainText {
+  padding-left: 10px;
+  font-family: "Barlow Condensed";
+  font-weight: 600;
+  font-size: 18px;
+  margin: auto 0;
+  color: #3b3b3b;
+}
+
+.mainInput {
+  box-sizing: border-box;
+  background-color: #b6b6b675;
+  color: #2b2b2b;
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  /* border-bottom: 2px solid #2b2b2b; */
+}
+
+.mainInput::placeholder {
+  color: #5a5a5a;
+}
+
+.mainButton {
+  box-sizing: border-box;
+  font-weight: 700;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.mainButton:enabled {
+  background-color: #00cf23;
+  color: #ffffff;
+}
+
+#mostrarPersonas.mainButton:enabled {
+  background-color: #079cff;
+  color: #ffffff;
+}
+
+.mainButton:disabled {
+  background-color: #e70c04;
+  color: #fff;
+}
+
+.mainButton:hover {
+  background-color: #131313ee;
+  color: #ffffff;
+}
