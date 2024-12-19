@@ -16,38 +16,39 @@
 
 <body>
     <header class="header">
-        <h1 class="header__item">Testing de Engell</h1>
-        <p class="header__item">Acá se estará probando como funcionan HTML, CSS, JavaScript y MySQL en conjunto.</p>
+        <h1 class="header__title">Testing de Engell</h1>
+        <p class="header__text"> Acá se estará probando como funcionan HTML, CSS, JavaScript y MySQL en conjunto.</p>
     </header>
 
     <main class="main">
-        <div class="main__item check">
-            <input class="check__item" size="30" type="text" id="prPe" placeholder="¿Cuántas personas quieres agregar?">
-            <input class="check__item" type="button" id="chequeo" value="Confirmar">
-            <p class="check__item" id="estadoAgregarNegativo"></p>
+        <p class="explaination">A continuación podrás insertar la cantidad de personas que quieres agregar y los datos de cada uno de ellas. Cada vez que le des agregar personas podrás mostrarlas para observar su información.</p>
+        <div class="main__container countPerson">
+            <input class="main__input" size="30" type="text" id="prPe" placeholder="¿Cuántas personas quieres agregar?">
+            <input class="main__input" type="button" id="chequeo" value="Confirmar">
+            <p class="main_text" id="estadoAgregarNegativo"></p>
         </div>
 
-        <div class="main__item add">
-            <input class="add__item" type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
-            <input class="add__item" type="number" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
-            <input class="add__item" type="number" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
-            <input class="add__item" type="button" id="agrPersonas" value="Agregar">
-            <p class="add__item" id="estadoAgregarPositivo"></p>
+        <div class="main__container addPerson">
+            <input class="main__input" type="text" name="preguntarNombre" id="prNm" placeholder="¿Cuál es su nombre?">
+            <input class="main__input" type="number" name="preguntarEdad" id="prEd" placeholder="¿Cuál es su edad?">
+            <input class="main__input" type="number" name="preguntarPeso" id="prPs" placeholder="¿Cuál es su peso?">
+            <input class="main__input" type="button" id="agrPersonas" value="Agregar">
+            <p class="main_text" id="estadoAgregarPositivo"></p>
         </div>
 
-        <div class="main__item show">
-            <input class="show__item" type="button" id="mostrarPersonas" value="Mostrar">
+        <div class="main__container showPerson">
+            <input class="main__input" type="button" id="mostrarPersonas" value="Mostrar">
         </div>
     </main>
 
-
-    <aside class="personas-container" id="personasContainer">
-        <div class="personas-container__item" id="numPerson"></div>
-        <div class="personas-container__item" id="nmPersonas"></div>
-        <div class="personas-container__item" id="edPersonas"></div>
-        <div class="personas-container__item" id="psPersonas"></div>
-    </aside>
-
+    <div class="personItemContainer" id="personasContainer">
+    <section class="data" id="personasContainer">
+        <div class="data__item" id="numPerson"></div>
+        <div class="data__item" id="nmPersonas"></div>
+        <div class="data__item" id="edPersonas"></div>
+        <div class="data__item" id="psPersonas"></div>
+    </section>
+    </div>
 </body>
 
 </html>
