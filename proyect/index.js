@@ -42,6 +42,7 @@ function agregarPersonas() {
       txtPrEd.value <= 0 ||
       txtPrPs.value < 0
     ) {
+      pStatusAgN.className = "warning";
       pStatusAgN.innerText =
         "Por favor, ingresa datos válidos para nombre, edad y peso.";
       return; // Salir de la función si hay un error
@@ -54,6 +55,7 @@ function agregarPersonas() {
     });
 
     // Actualizar el estado positivo
+    pStatusAgP.className = "confirmed";
     estadoAgregarPositivo = "Se agregó a esta persona";
     pStatusAgP.innerText = estadoAgregarPositivo;
 
@@ -68,6 +70,7 @@ function agregarPersonas() {
     txtPrPs.value = "";
   } else {
     // Mostrar mensaje si se ha alcanzado el número máximo de personas
+    pStatusAgN.className = "error";
     pStatusAgN.innerText = "Ya has agregado el número máximo de personas.";
     btnAgregar.disabled = true; // Deshabilitar el botón para que no se puedan agregar más personas
   }
@@ -83,9 +86,11 @@ function checkPreguntar() {
   if (!isNaN(preguntarPersonas) && preguntarPersonas > 0) {
     // Mensaje personalizado dependiendo de si es una persona o más de una
     if (preguntarPersonas > 1) {
+      pStatusAgN.className = "confirmed";
       estadoAgregarNegativo =
         "Vas a agregar: " + preguntarPersonas + " personas.";
     } else {
+      pStatusAgN.className = "confirmed";
       estadoAgregarNegativo =
         "Vas a agregar: " + preguntarPersonas + " persona.";
     }
@@ -93,6 +98,7 @@ function checkPreguntar() {
     btnAgregar.disabled = false; // Habilitar el botón "Agregar" si el número es válido
     contadorPersonasAgregadas = 0; // Reiniciar el contador de personas agregadas por si el usuario cambia el número
 
+    pStatusAgN.className = "normal";
     pStatusAgN.innerText = estadoAgregarNegativo;
     estadoAgregarPositivo = "Se va agregar a esta persona."; // Guardar el mensaje de que se agregará una personas en el estado-agregar-positivo
   } else if (preguntarPersonas === 0) {
@@ -100,6 +106,7 @@ function checkPreguntar() {
     estadoAgregarNegativo = "No agregaste personas";
     estadoAgregarPositivo = "";
 
+    pStatusAgN.className = "error";
     pStatusAgN.innerText = estadoAgregarNegativo;
     pStatusAgP.innerText = estadoAgregarPositivo;
 
@@ -108,6 +115,7 @@ function checkPreguntar() {
     estadoAgregarNegativo = "No dijiste cuantas personas querias agregar!";
     estadoAgregarPositivo = "";
 
+    pStatusAgN.className = "error";
     pStatusAgN.innerText = estadoAgregarNegativo;
     pStatusAgP.innerText = estadoAgregarPositivo;
 
@@ -145,13 +153,17 @@ function mostrarPersonas() {
 
     // Mensaje personalizado dependiendo de si se agrega una sola persona o si se agregaran mas
     if (preguntarPersonas > 1) {
+      pStatusAgP.className = "next";
       estadoAgregarPositivo = "Agrega a la siguiente persona.";
       pStatusAgP.innerText = estadoAgregarPositivo;
     } else {
+      pStatusAgP.innerText = "confirmed";
       estadoAgregarPositivo = "Persona agregada correctamente.";
       pStatusAgP.innerText = estadoAgregarPositivo;
     }
   });
+  const personContainer = document.getElementById("personasContainer"); // <div class="container"></div>
+  personContainer.style.visibility = "visible";
 }
 // Asociar la función mostrarPersonas() al evento de clic del botón "Mostrar"
 btnMostrarP.addEventListener("click", mostrarPersonas);
